@@ -1,3 +1,42 @@
+/* ============================================================
+   neuroflash Brand Variables
+   Source: https://neuro-flash.github.io/brand-master/api/brand.json
+   ============================================================ */
+:root {
+  --nf-midnight-navy:  #080B1A;
+  --nf-deep-teal:      #006483;
+  --nf-cyan:           #0FD0E7;
+  --nf-cloud-grey:     #F3F4F6;
+  --nf-blue:           #3771C8;
+  --nf-deep-green:     #0EAEC1;
+  --nf-orange:         #FE7904;
+  --nf-text-on-dark:   #FFFFFF;
+  --nf-text-muted:     #E0E3EA;
+  --nf-text-dark:      #111E2C;
+  --nf-surface:        #111E2C;
+  --nf-border:         rgba(55, 113, 200, 0.2);
+  --nf-border-subtle:  rgba(15, 208, 231, 0.15);
+}
+
+/* ============================================================
+   neuroflash Dark Mode Variable Overrides
+   ============================================================ */
+html.dark-mode {
+  /* Backgrounds */
+  --color-bg:                var(--nf-midnight-navy);
+  --color-secondary-bg:      var(--nf-surface);
+
+  /* Text */
+  --color-text:              var(--nf-cloud-grey);
+  --color-secondary-text:    var(--nf-text-muted);
+
+  /* Borders */
+  --color-border:            var(--nf-border);
+
+  /* Accent — Ghost uses this for buttons, links, highlights */
+  --ghost-accent-color:      var(--nf-cyan);
+}
+
 /* Table of contents
 /* ------------------------------------------------------------
 
@@ -3332,4 +3371,159 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
 
 .pswp--minimal--dark .pswp__top-bar {
     background: none;
+}
+
+/* ============================================================
+   neuroflash Typography
+   ============================================================ */
+
+body {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6,
+.gh-card-title,
+.article-title,
+.site-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+}
+
+/* Ensure minimum body text size per brand rules */
+p, li, td, .gh-card-excerpt {
+  font-size: max(14px, 1rem);
+}
+
+/* ============================================================
+   neuroflash Dark Mode Surfaces
+   ============================================================ */
+
+html.dark-mode body {
+  background-color: var(--nf-midnight-navy);
+  color: var(--nf-cloud-grey);
+}
+
+/* Nav */
+html.dark-mode .gh-head {
+  background-color: var(--nf-midnight-navy);
+  border-bottom: 1px solid var(--nf-border-subtle);
+  box-shadow: none;
+}
+
+html.dark-mode .gh-head a,
+html.dark-mode .gh-head-menu a {
+  color: var(--nf-text-muted);
+}
+
+html.dark-mode .gh-head a:hover,
+html.dark-mode .gh-head-menu a:hover {
+  color: var(--nf-cyan);
+}
+
+/* Post cards */
+html.dark-mode .gh-card {
+  background: var(--nf-surface);
+  border: 1px solid var(--nf-border);
+  border-radius: 8px;
+}
+
+html.dark-mode .gh-card-title {
+  color: var(--nf-text-on-dark);
+}
+
+html.dark-mode .gh-card-excerpt {
+  color: var(--nf-text-muted);
+}
+
+/* Tags / labels */
+html.dark-mode .gh-tag,
+html.dark-mode .article-tag {
+  background: rgba(55, 113, 200, 0.12);
+  color: var(--nf-cyan);
+  border: 1px solid rgba(15, 208, 231, 0.25);
+  border-radius: 4px;
+}
+
+/* Links in post content */
+html.dark-mode .gh-content a {
+  color: var(--nf-cyan);
+  text-decoration-color: rgba(15, 208, 231, 0.35);
+}
+
+html.dark-mode .gh-content a:hover {
+  text-decoration-color: var(--nf-cyan);
+}
+
+/* Code blocks */
+html.dark-mode pre,
+html.dark-mode code {
+  background: var(--nf-surface);
+  border: 1px solid var(--nf-border);
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+html.dark-mode :not(pre) > code {
+  background: rgba(55, 113, 200, 0.12);
+  color: var(--nf-cyan);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+
+/* Buttons — ensure 44px min touch target per brand rules */
+html.dark-mode .gh-btn,
+html.dark-mode .gh-subscribe-btn,
+html.dark-mode button {
+  background: var(--nf-blue);
+  color: var(--nf-text-on-dark);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  min-height: 44px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 6px;
+  border: none;
+}
+
+html.dark-mode .gh-btn:hover,
+html.dark-mode .gh-subscribe-btn:hover {
+  background: var(--nf-cyan);
+  color: var(--nf-midnight-navy);
+}
+
+/* Dividers */
+html.dark-mode hr {
+  border-color: var(--nf-border-subtle);
+}
+
+/* Footer */
+html.dark-mode .gh-foot {
+  background: var(--nf-midnight-navy);
+  border-top: 1px solid var(--nf-border-subtle);
+  color: var(--nf-text-muted);
+}
+
+html.dark-mode .gh-foot a {
+  color: var(--nf-text-muted);
+}
+
+html.dark-mode .gh-foot a:hover {
+  color: var(--nf-cyan);
+}
+
+/* Blockquotes */
+html.dark-mode blockquote {
+  border-left: 3px solid var(--nf-blue);
+  color: var(--nf-text-muted);
+  background: rgba(55, 113, 200, 0.06);
+  padding: 1em 1.5em;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Selection */
+html.dark-mode ::selection {
+  background: rgba(15, 208, 231, 0.25);
+  color: var(--nf-text-on-dark);
 }
