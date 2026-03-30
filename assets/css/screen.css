@@ -3407,20 +3407,22 @@ p, li, td, .gh-card-excerpt {
    Matches the dev portal: linear-gradient(to bottom, #080B1A, #006483)
    ============================================================ */
 
-html.dark-mode body {
+/* Gradient applied to html element — body and containers must be transparent */
+html.dark-mode {
   background: linear-gradient(to bottom, #080B1A 0%, #006483 100%) fixed !important;
-  background-color: #080B1A !important;
+  min-height: 100%;
+}
+
+html.dark-mode body {
+  background: transparent !important;
   color: var(--nf-cloud-grey);
   min-height: 100vh;
 }
 
-/* Prevent white flash on individual containers */
-html.dark-mode .gh-viewport {
-  background: transparent;
-}
-
-html.dark-mode .gh-main {
-  background: transparent;
+html.dark-mode .gh-viewport,
+html.dark-mode .gh-main,
+html.dark-mode .nf-hero {
+  background: transparent !important;
 }
 
 /* ============================================================
@@ -3623,6 +3625,11 @@ html.dark-mode .gh-dropdown li a:hover {
 }
 
 /* Selection */
+/* Hide footer signup duplicate — Members stays on for nav Subscribe button */
+.gh-footer-signup {
+  display: none !important;
+}
+
 html.dark-mode ::selection {
   background: rgba(15, 208, 231, 0.25);
   color: var(--nf-text-on-dark);
