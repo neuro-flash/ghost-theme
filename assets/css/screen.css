@@ -3383,27 +3383,90 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
    neuroflash Typography
    ============================================================ */
 
-/* ============================================================
-   neuroflash Typography
-   ============================================================ */
-
-body {
-  font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
+body,
+html {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6,
 .gh-card-title,
-.article-title,
-.site-title {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+.gh-article-title,
+.gh-navigation-logo,
+.gh-footer-logo,
+.nf-hero-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-weight: 700;
 }
 
-/* Ensure minimum body text size per brand rules */
 p, li, td, .gh-card-excerpt {
   font-size: max(14px, 1rem);
+}
+
+/* ============================================================
+   neuroflash Brand Gradient Background
+   Matches the dev portal: linear-gradient(to bottom, #080B1A, #006483)
+   ============================================================ */
+
+html.dark-mode body {
+  background: linear-gradient(to bottom, #080B1A 0%, #006483 100%) fixed !important;
+  background-color: #080B1A !important;
+  color: var(--nf-cloud-grey);
+  min-height: 100vh;
+}
+
+/* Prevent white flash on individual containers */
+html.dark-mode .gh-viewport {
+  background: transparent;
+}
+
+html.dark-mode .gh-main {
+  background: transparent;
+}
+
+/* ============================================================
+   neuroflash Custom Hero
+   ============================================================ */
+
+.nf-hero {
+  padding: 80px 0 64px;
+  background: transparent;
+}
+
+.nf-hero-inner {
+  max-width: 760px;
+}
+
+.nf-hero-label {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0FD0E7;
+  border: 1px solid rgba(15, 208, 231, 0.35);
+  border-radius: 100px;
+  background: rgba(15, 208, 231, 0.06);
+}
+
+.nf-hero-title {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: clamp(3.2rem, 4vw, 5.6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.nf-hero-sub {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #E0E3EA;
+  max-width: 600px;
 }
 
 /* ============================================================
@@ -3411,20 +3474,21 @@ p, li, td, .gh-card-excerpt {
    ============================================================ */
 
 html.dark-mode body {
-  background-color: var(--nf-midnight-navy);
   color: var(--nf-cloud-grey);
 }
 
-/* Navigation — Source theme uses .gh-navigation not .gh-head */
+/* Navigation */
 html.dark-mode .gh-navigation {
-  background-color: var(--nf-midnight-navy);
+  background-color: rgba(8, 11, 26, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--nf-border-subtle);
   box-shadow: none;
   color: var(--nf-text-muted);
 }
 
 html.dark-mode .gh-navigation-actions {
-  background-color: var(--nf-midnight-navy);
+  background-color: transparent !important;
 }
 
 html.dark-mode .gh-navigation a,
@@ -3438,11 +3502,12 @@ html.dark-mode .gh-navigation-menu a:hover {
   opacity: 1;
 }
 
-/* Post cards */
+/* Post cards — semi-transparent so gradient shows through */
 html.dark-mode .gh-card {
-  background: var(--nf-surface);
+  background: rgba(17, 30, 44, 0.7);
   border: 1px solid var(--nf-border);
   border-radius: 8px;
+  backdrop-filter: blur(4px);
 }
 
 html.dark-mode .gh-card-title {
@@ -3453,9 +3518,8 @@ html.dark-mode .gh-card-excerpt {
   color: var(--nf-text-muted);
 }
 
-/* Tags / labels */
+/* Tags */
 html.dark-mode .gh-card-tag,
-html.dark-mode .article-tag,
 html.dark-mode .gh-article-tag {
   background: rgba(55, 113, 200, 0.12);
   color: var(--nf-cyan);
@@ -3463,7 +3527,7 @@ html.dark-mode .gh-article-tag {
   border-radius: 4px;
 }
 
-/* Links in post content */
+/* Content links */
 html.dark-mode .gh-content a {
   color: var(--nf-cyan);
   text-decoration-color: rgba(15, 208, 231, 0.35);
@@ -3477,25 +3541,25 @@ html.dark-mode .gh-content a:hover {
 /* Code blocks */
 html.dark-mode pre,
 html.dark-mode code {
-  background: var(--nf-surface);
+  background: rgba(17, 30, 44, 0.8);
   border: 1px solid var(--nf-border);
-  font-size: 14px;
   border-radius: 6px;
+  font-size: 14px;
 }
 
 html.dark-mode :not(pre) > code {
   background: rgba(55, 113, 200, 0.12);
+  border: none;
+  border-radius: 3px;
   color: var(--nf-cyan);
   padding: 0.1em 0.4em;
-  border-radius: 3px;
-  border: none;
 }
 
 /* Buttons */
 html.dark-mode .gh-button {
-  background: var(--nf-blue);
-  color: var(--nf-text-on-dark);
-  font-family: 'Montserrat', sans-serif;
+  background: var(--nf-blue) !important;
+  color: var(--nf-text-on-dark) !important;
+  font-family: 'Montserrat', sans-serif !important;
   font-weight: 700;
   min-height: 44px;
   border-radius: 6px;
@@ -3503,8 +3567,8 @@ html.dark-mode .gh-button {
 }
 
 html.dark-mode .gh-button:hover {
-  background: var(--nf-cyan);
-  color: var(--nf-midnight-navy);
+  background: var(--nf-cyan) !important;
+  color: var(--nf-midnight-navy) !important;
   opacity: 1;
 }
 
@@ -3514,9 +3578,9 @@ html.dark-mode hr {
   background-color: var(--nf-border-subtle);
 }
 
-/* Footer — Source theme uses .gh-footer not .gh-foot */
+/* Footer */
 html.dark-mode .gh-footer {
-  background: var(--nf-midnight-navy);
+  background: rgba(8, 11, 26, 0.9);
   border-top: 1px solid var(--nf-border-subtle);
   color: var(--nf-text-muted);
 }
@@ -3530,7 +3594,6 @@ html.dark-mode .gh-footer a:hover {
   opacity: 1;
 }
 
-/* Footer bar specifically */
 html.dark-mode .gh-footer-bar {
   border-color: var(--nf-border-subtle);
 }
@@ -3544,7 +3607,7 @@ html.dark-mode blockquote {
   border-radius: 0 6px 6px 0;
 }
 
-/* Dropdown menu on dark */
+/* Dropdown */
 html.dark-mode .gh-dropdown {
   background-color: var(--nf-surface);
   border: 1px solid var(--nf-border);
@@ -3563,4 +3626,11 @@ html.dark-mode .gh-dropdown li a:hover {
 html.dark-mode ::selection {
   background: rgba(15, 208, 231, 0.25);
   color: var(--nf-text-on-dark);
+}
+
+/* Container title (LATEST, etc.) */
+html.dark-mode .gh-container-title,
+html.dark-mode .gh-featured-title {
+  color: var(--nf-text-muted);
+  border-color: var(--nf-border-subtle);
 }
