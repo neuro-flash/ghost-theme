@@ -22,6 +22,9 @@
    neuroflash Dark Mode Variable Overrides
    ============================================================ */
 html.dark-mode {
+  /* Ghost's primary background variable — used by body, nav, footer */
+  --background-color:        var(--nf-midnight-navy);
+
   /* Backgrounds */
   --color-bg:                var(--nf-midnight-navy);
   --color-secondary-bg:      var(--nf-surface);
@@ -29,9 +32,12 @@ html.dark-mode {
   /* Text */
   --color-text:              var(--nf-cloud-grey);
   --color-secondary-text:    var(--nf-text-muted);
+  --color-darker-gray:       var(--nf-cloud-grey);
+  --color-primary-text:      var(--nf-cloud-grey);
 
   /* Borders */
   --color-border:            var(--nf-border);
+  --color-dark-border:       var(--nf-border-subtle);
 
   /* Accent — Ghost uses this for buttons, links, highlights */
   --ghost-accent-color:      var(--nf-cyan);
@@ -3377,6 +3383,10 @@ body[class*=" gh-font-heading"]:not(.gh-font-heading-fira-sans):not(.gh-font-hea
    neuroflash Typography
    ============================================================ */
 
+/* ============================================================
+   neuroflash Typography
+   ============================================================ */
+
 body {
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
@@ -3405,21 +3415,27 @@ html.dark-mode body {
   color: var(--nf-cloud-grey);
 }
 
-/* Nav */
-html.dark-mode .gh-head {
+/* Navigation — Source theme uses .gh-navigation not .gh-head */
+html.dark-mode .gh-navigation {
   background-color: var(--nf-midnight-navy);
   border-bottom: 1px solid var(--nf-border-subtle);
   box-shadow: none;
-}
-
-html.dark-mode .gh-head a,
-html.dark-mode .gh-head-menu a {
   color: var(--nf-text-muted);
 }
 
-html.dark-mode .gh-head a:hover,
-html.dark-mode .gh-head-menu a:hover {
+html.dark-mode .gh-navigation-actions {
+  background-color: var(--nf-midnight-navy);
+}
+
+html.dark-mode .gh-navigation a,
+html.dark-mode .gh-navigation-menu a {
+  color: var(--nf-text-muted);
+}
+
+html.dark-mode .gh-navigation a:hover,
+html.dark-mode .gh-navigation-menu a:hover {
   color: var(--nf-cyan);
+  opacity: 1;
 }
 
 /* Post cards */
@@ -3438,8 +3454,9 @@ html.dark-mode .gh-card-excerpt {
 }
 
 /* Tags / labels */
-html.dark-mode .gh-tag,
-html.dark-mode .article-tag {
+html.dark-mode .gh-card-tag,
+html.dark-mode .article-tag,
+html.dark-mode .gh-article-tag {
   background: rgba(55, 113, 200, 0.12);
   color: var(--nf-cyan);
   border: 1px solid rgba(15, 208, 231, 0.25);
@@ -3453,6 +3470,7 @@ html.dark-mode .gh-content a {
 }
 
 html.dark-mode .gh-content a:hover {
+  opacity: 1;
   text-decoration-color: var(--nf-cyan);
 }
 
@@ -3470,47 +3488,51 @@ html.dark-mode :not(pre) > code {
   color: var(--nf-cyan);
   padding: 0.1em 0.4em;
   border-radius: 3px;
+  border: none;
 }
 
-/* Buttons — ensure 44px min touch target per brand rules */
-html.dark-mode .gh-btn,
-html.dark-mode .gh-subscribe-btn,
-html.dark-mode button {
+/* Buttons */
+html.dark-mode .gh-button {
   background: var(--nf-blue);
   color: var(--nf-text-on-dark);
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   min-height: 44px;
-  padding-left: 20px;
-  padding-right: 20px;
   border-radius: 6px;
   border: none;
 }
 
-html.dark-mode .gh-btn:hover,
-html.dark-mode .gh-subscribe-btn:hover {
+html.dark-mode .gh-button:hover {
   background: var(--nf-cyan);
   color: var(--nf-midnight-navy);
+  opacity: 1;
 }
 
 /* Dividers */
 html.dark-mode hr {
   border-color: var(--nf-border-subtle);
+  background-color: var(--nf-border-subtle);
 }
 
-/* Footer */
-html.dark-mode .gh-foot {
+/* Footer — Source theme uses .gh-footer not .gh-foot */
+html.dark-mode .gh-footer {
   background: var(--nf-midnight-navy);
   border-top: 1px solid var(--nf-border-subtle);
   color: var(--nf-text-muted);
 }
 
-html.dark-mode .gh-foot a {
+html.dark-mode .gh-footer a {
   color: var(--nf-text-muted);
 }
 
-html.dark-mode .gh-foot a:hover {
+html.dark-mode .gh-footer a:hover {
   color: var(--nf-cyan);
+  opacity: 1;
+}
+
+/* Footer bar specifically */
+html.dark-mode .gh-footer-bar {
+  border-color: var(--nf-border-subtle);
 }
 
 /* Blockquotes */
@@ -3520,6 +3542,21 @@ html.dark-mode blockquote {
   background: rgba(55, 113, 200, 0.06);
   padding: 1em 1.5em;
   border-radius: 0 6px 6px 0;
+}
+
+/* Dropdown menu on dark */
+html.dark-mode .gh-dropdown {
+  background-color: var(--nf-surface);
+  border: 1px solid var(--nf-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+html.dark-mode .gh-dropdown li a {
+  color: var(--nf-text-muted) !important;
+}
+
+html.dark-mode .gh-dropdown li a:hover {
+  color: var(--nf-cyan) !important;
 }
 
 /* Selection */
