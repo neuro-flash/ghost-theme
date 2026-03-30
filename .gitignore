@@ -24,5 +24,6 @@ projectFilesBackup
 dist/
 
 config.json
+!.superset/config.json
 changelog.md
 changelog.md.bk
